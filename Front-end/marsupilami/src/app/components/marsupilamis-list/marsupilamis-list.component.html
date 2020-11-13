@@ -1,0 +1,77 @@
+<p>marsupilamis-list works!</p>
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Recherchez par le nom"
+          [(ngModel)]="nom"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchNom()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4> Liste d'Amis</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let marsupilami of marsupilamis; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveMarsupilami(marsupilami, i)"
+        >
+          {{ marsupilami.nom}}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllMarsupilamis()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentTutorial">
+        <h4>Tutorial</h4>
+        <div>
+          <label><strong>Nom:</strong></label> {{ currentMarsupilami.nom }}
+        </div>
+        <div>
+          <label><strong>Age:</strong></label>
+          {{ currentMarsupilami.age}}
+        </div>
+        <div>
+            <label><strong>Age:</strong></label>
+            {{ currentMarsupilami.age}}
+        </div>
+        <div>
+            <label><strong>Famille:</strong></label>
+            {{ currentMarsupilami.famille}}
+        </div>
+        <div>
+            <label><strong>Race:</strong></label>
+            {{ currentMarsupilami.race}}
+        </div>
+        <div>
+            <label><strong>Nourriture:</strong></label>
+            {{ currentMarsupilami.nourriture}}
+        </div>
+
+  
+        <a class="badge badge-warning" href="/marsupilamis/{{ currentMarsupilami.id }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currentMarsupilami">
+        <br />
+        <p>Please click on a marsupilami...</p>
+      </div>
+    </div>
+  </div>
