@@ -2,11 +2,10 @@ module.exports = app => {
     const marsupilamis = require("../controllers/controller.js");
     
     var router = require("express").Router();
+
     router.post("/",marsupilamis.create);
 
     router.get("/",marsupilamis.findAll);
-
-    router.get("/published",marsupilamis.findAllPublished);
 
     router.get("/:id",marsupilamis.findOne);
 
@@ -18,7 +17,7 @@ module.exports = app => {
 
     app.use("/api/marsupilamis",router);
 
-
+    
     
 
 };

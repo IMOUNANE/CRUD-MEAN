@@ -1,5 +1,3 @@
-
-
 module.exports = {
-    url: "http://localhost:3001"
+    url: "mongodb://localhost:27017/Marsupilami_db"
 }

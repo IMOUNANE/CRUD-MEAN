@@ -20,7 +20,7 @@ const db =require("./app/models");
 db.mongoose
   .connect(db.url,{
       useNewUrlParser: true,
-      useUnifieldTopology: true,
+      useUnifiedTopology: true,
   })
   .then(()=>{
       console.log("Connected Sucessfull")

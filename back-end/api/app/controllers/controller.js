@@ -1,17 +1,17 @@
 const db = require("../models");
-const Model = db.model;
+const Marsupilami = db.models;
 
 exports.create = (req,res) =>{
     //Valide request
-    if(!req.body.title){
+    if(!req.body.nom){
         res.status(400).send({message:"Content can not be empty!"});
+        console.log(req.body);
         return;
     }
     //Create a Marsupilami
     const marsupilami= new Marsupilami({
-
-        nom:req.body.nom,
-        age:req.body.age,
+        nom: req.body.nom,
+        age: req.body.age,
         famille: req.body.famille,
         race: req.body.race,
         nourriture: req.body.nourriture
@@ -30,6 +30,7 @@ exports.create = (req,res) =>{
         });
 
 };
+
 // All Marsupilami
 exports.findAll = (req,res) =>{
 const nom = req.query.name
@@ -115,24 +116,13 @@ exports.deleteAll = (req,res) =>{
         .catch(err=>{
             res.status(500).send({
                 message:
-                err.message || "Some error occurrend while removing all turorials."
+                err.message || "Some error occurrend while removing all Marsupilamis."
             });
         });
 };
 
 
-exports.findAllPublished = (req,res) =>{
-    Marsupilami.find({published:true})
-        .then(data => {
-                res.send(data);
-        })
-        .catch(err => {
-            res.status(500).send({
-                message:
-                err.message || "Some error occurrend while retrieving turorials."
-            });
-        });
-};
+
 
 
 
