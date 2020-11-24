@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:8080/';
+const baseUrlmarsup = 'http://localhost:8080/api/marsupilamis';
 
 @Injectable({
   providedIn: 'root'
@@ -11,30 +11,32 @@ export class MarsupilamiService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get(baseUrl);
+    return this.http.get(baseUrlmarsup);
   }
+  
+
 
   get(id: number) {
-    return this.http.get(`${baseUrl}/${id}`);
+    return this.http.get(`${baseUrlmarsup}/${id}`);
   }
 
   create(data: any) {
-    return this.http.post(baseUrl, data);
+    return this.http.post(baseUrlmarsup, data);
   }
 
   update(id: number, data: any) {
-    return this.http.put(`${baseUrl}/${id}`, data);
+    return this.http.put(`${baseUrlmarsup}/${id}`, data);
   }
 
   delete(id: number) {
-    return this.http.delete(`${baseUrl}/${id}`);
+    return this.http.delete(`${baseUrlmarsup}/${id}`);
   }
 
   deleteAll() {
-    return this.http.delete(baseUrl);
+    return this.http.delete(baseUrlmarsup);
   }
 
   findByNom(nom: string) {
-    return this.http.get(`${baseUrl}?nom=${nom}`);
+    return this.http.get(`${baseUrlmarsup}?nom=${nom}`);
   }
 }

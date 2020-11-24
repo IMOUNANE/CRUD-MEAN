@@ -5,7 +5,8 @@ module.exports = mongoose =>{
             age: Number,
             famille: String,
             race:  String,
-            nourriture: String
+            nourriture: String,
+            friends: Array
         },
         { timestamps:true }
     );
@@ -15,7 +16,7 @@ module.exports = mongoose =>{
         return object;
     });
 
-    const Marsupilami = mongoose.model("marsupilami",schema);
+    const Marsupilami = mongoose.model("marsupilamis",schema);
     return Marsupilami;
 
 };

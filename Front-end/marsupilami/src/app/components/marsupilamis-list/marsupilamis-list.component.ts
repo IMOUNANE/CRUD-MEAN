@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MarsupilamiService } from 'src/app/services/marsupilami.service';
+import { MarsupilamiService } from '../../services/marsupilami.service';
 
 @Component({
   selector: 'app-marsupilamis-list',
@@ -30,15 +30,18 @@ export class MarsupilamisListComponent implements OnInit {
           console.log(error);
         });
   }
+ 
 
   refreshList() {
     this.retrieveMarsupilamis();
+  
     this.currentMarsupilami = null;
     this.currentIndex = -1;
   }
 
   setActiveMarsupilami(marsupilami:any, index:number) {
     this.currentMarsupilami = marsupilami;
+    console.log(this.currentMarsupilami)
     this.currentIndex = index;
   }
 

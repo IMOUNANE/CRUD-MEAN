@@ -37,36 +37,22 @@
       </button>
     </div>
     <div class="col-md-6">
-      <div *ngIf="currentTutorial">
-        <h4>Tutorial</h4>
+      <div *ngIf="currentMarsupilami">
+        <h4>Marsupilami</h4>
         <div>
           <label><strong>Nom:</strong></label> {{ currentMarsupilami.nom }}
         </div>
-        <div>
-          <label><strong>Age:</strong></label>
-          {{ currentMarsupilami.age}}
-        </div>
+        
         <div>
             <label><strong>Age:</strong></label>
             {{ currentMarsupilami.age}}
         </div>
-        <div>
-            <label><strong>Famille:</strong></label>
-            {{ currentMarsupilami.famille}}
-        </div>
-        <div>
-            <label><strong>Race:</strong></label>
-            {{ currentMarsupilami.race}}
-        </div>
-        <div>
-            <label><strong>Nourriture:</strong></label>
-            {{ currentMarsupilami.nourriture}}
-        </div>
-
+        
   
-        <a class="badge badge-warning" href="/marsupilamis/{{ currentMarsupilami.id }}">
+        <a class="badge badge-warning" routerLink="/marsupilamis/{{ currentMarsupilami }}">
           Edit
-        </a>
+        </a> 
+       
       </div>
   
       <div *ngIf="!currentMarsupilami">

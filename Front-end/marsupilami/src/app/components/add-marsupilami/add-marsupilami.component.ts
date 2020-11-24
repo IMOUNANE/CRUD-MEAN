@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
+//import { NavbarComponent } from '../navbar/navbar.component';
 import { MarsupilamiService } from 'src/app/services/marsupilami.service';
+
+
 
 @Component({
   selector: 'app-add-marsupilami',
@@ -17,10 +22,35 @@ export class AddMarsupilamiComponent implements OnInit {
   };
   submitted = false;
 
-  constructor(private marsupilamiService: MarsupilamiService) { }
+  constructor(private marsupilamiService: MarsupilamiService, private auth: AuthService, private router:Router) { }
 
   ngOnInit() {
   }
+  registerUser(event: any){
+    event.preventDefault()
+    const error=[]
+    const target = event.target
+    const username = target.querySelector("#username").value
+    const password = target.querySelector("#password").value
+    const cpassword = target.querySelector("#cpassword").value
+    this.newMarsupilami()
+    this.saveMarsupilami()
+    if(password!=cpassword){
+      error.push("Password do not match")
+    }
+    if(error.length > 0){
+      this.auth.registerUser(username,password).subscribe(data=>{
+        console.log(data)
+        if(data.success){
+          this.router.navigate(['dashbord'])
+          
+        }
+      })
+        
+    }
+    console.log(username, password)
+  }
+  
 
   saveMarsupilami() {
     const data = {

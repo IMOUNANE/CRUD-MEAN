@@ -14,13 +14,16 @@ exports.create = (req,res) =>{
         age: req.body.age,
         famille: req.body.famille,
         race: req.body.race,
-        nourriture: req.body.nourriture
+        nourriture: req.body.nourriture,
+        friends: req.body.friends
+       
     });
     //Save Marsupilami in the database
     marsupilami
         .save(marsupilami)
         .then(data=>{
             res.send(data);
+
         })
         .catch(err=>{
             res.status(500).send({
